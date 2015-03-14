@@ -44,6 +44,9 @@ def getAtt(DXurl,md,login):
 	legpath=ssFolder+"leg001.pdg"
 	dxDown(legurl,legpath)
 	shutil.move(ssFolder,"F:\\ss\\leg\\"+bookname+"_"+ssid+"\\")
+	os.remove("temp.txt")
+	os.remove("cookie.txt")
+	os.remove("dxcookie.txt")
 
 def main():
 	getAtt(sys.argv[1],md,login)
