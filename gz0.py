@@ -35,14 +35,14 @@ def getBook(gzBook):
 	BasicURL=gzBook[0]
 	firstpage=int(gzBook[1])
 	lastpage=int(gzBook[2])
-	ssno=gzBook[3]
+	ssid=gzBook[3]
 	bookname=gzBook[4]
 
 	#文件夾
-	ssFolder="F:\\ss\\"+bookname+"_"+ssno+"\\"
+	ssFolder="F:\\ss\\"+bookname+"_"+ssid+"\\"
 	FolderExist=os.path.isdir(ssFolder)
 	if FolderExist == False:
-		os.mkdir(r'f:/ss/'+bookname+'_'+ssno+'/')
+		os.mkdir(r'f:/ss/'+bookname+'_'+ssid+'/')
 
 	#生成bookinfo
 	BookinfoExist=os.path.isfile(ssFolder+"Bookinfo.dat")
@@ -52,7 +52,7 @@ def getBook(gzBook):
 		Bookinfo.write("书名="+bookname+"\n")
 		Bookinfo.write("作者="+"\n")
 		Bookinfo.write("页数="+str(lastpage)+"\n")
-		Bookinfo.write("SS号="+ssno+"\n")
+		Bookinfo.write("SS号="+ssid+"\n")
 		Bookinfo.write("DX号="+"\n")
 		Bookinfo.write("出版日期="+"\n")
 		Bookinfo.write("出版社="+"\n")
@@ -104,22 +104,22 @@ def getBook(gzBook):
 			if FileSize == 0:
 				pDown(BasicURL+pgNum, ssFile)
 				if num == lastpage:
-					print(bookname+ssno)
+					print(bookname+ssid)
 			if FileSize == 1163:
 				os.remove(ssFile)
 				pDown(BasicURL+pgNum, ssFile)
 				if num == lastpage:
-					shutil.move(ssFolder,"F:\\ss\\done\\"+bookname+"_"+ssno+"\\")
-					print(bookname+ssno)
+					shutil.move(ssFolder,"F:\\ss\\done\\"+bookname+"_"+ssid+"\\")
+					print(bookname+ssid)
 			else:
 				if num == lastpage:
-					shutil.move(ssFolder,"F:\\ss\\done\\"+bookname+"_"+ssno+"\\")
-					print(bookname+ssno)
+					shutil.move(ssFolder,"F:\\ss\\done\\"+bookname+"_"+ssid+"\\")
+					print(bookname+ssid)
 		else:
 			pDown(BasicURL+pgNum, ssFile)
 			if num == lastpage:
-				shutil.move(ssFolder,"F:\\ss\\done\\"+bookname+"_"+ssno+"\\")
-				print(bookname+ssno)
+				shutil.move(ssFolder,"F:\\ss\\done\\"+bookname+"_"+ssid+"\\")
+				print(bookname+ssid)
 
 #與bat對接
 def main():
