@@ -38,6 +38,10 @@
 6. 廢 link 很多，要在 uGet 手動刪除。
 7. 當前默認嘗試前言和目錄到 30 頁。對於辭書通常不夠，要手動改。
 
-## DX2ZJK.user.js
+## DX2All.user.js
 1. 用於在 bookDetail 頁中顯示 ssid ，通向 BK 查詢頁及 NB ZJK, JN ZJK, GZU ZJK 返回鏈獲取頁。
+2. 亦可用於長春、大連等，支持 EZ 和 SSLVPN 模式。
+
+## Se2All.user.js
+1. 用於在普通搜索頁中顯示 ssid ，通向 BK 查詢頁及 NB ZJK, JN ZJK, GZU ZJK 返回鏈獲取頁。
 2. 亦可用於長春、大連等，支持 EZ 和 SSLVPN 模式。
