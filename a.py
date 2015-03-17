@@ -1,5 +1,7 @@
 import os, pycurl, re, sys, shutil
 
+md=":"
+login=":"
 def dxDown(url, fullpath):
 	c=pycurl.Curl() # 縮寫一下
 	c.setopt(c.FOLLOWLOCATION, True) # 允許重定向
@@ -50,7 +52,5 @@ def getAtt(DXurl,md,login):
 
 def main():
 	getAtt(sys.argv[1],md,login)
-md=":"
-login=":"
 if __name__ == "__main__":
 	main()
