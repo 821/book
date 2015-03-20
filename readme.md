@@ -2,7 +2,6 @@
 1. 懶得每次敲那麼多字，所以用短文件名。
 2. 測試都是實際下載中發生的，很多 bug 沒測到一點都不奇怪。
 3. .py 衹測試最新穩定版 Python （目前爲 3.4 ）， .js 衹測試 Chrome Stable + Tampermonkey 。
-4. 本人系統爲 Windows ， 64 bit 。至於是 7 還是 8 則看重裝時的隨機因素。
 
 ## a.py
 1. 用於補版權。
@@ -28,7 +27,7 @@
 
 ## gz0.py
 1. 用於下載 GZU ZJK 。
-2. 需要 PycURL ——因爲 GZ VPN 的本地代理和 urllib 不兼容。
+2. 需要 PycURL ——因爲 GZ VPN 和 urllib 不兼容。
 3. 需要 GZU VPN 帳號。
 4. 自動生成標準文件夾，下載時文件夾放在 F:\\ss\\ ，完成後移入 F:\\ss\\done\\ 。
 5. 可以結合 bat 來批量。
@@ -36,7 +35,7 @@
 
 ## gz1.py
 1. 用於下載 GZU ZJK 。
-2. 需要 uGet 1.99 以上版本，設好 path 或將腳本放置於 uGet 之 bin 文件夾。此版或以上 uGet 均爲 Unicode 程序，而舊版則需要把所生成之 bat 轉爲 GBK 編碼方可使用。
+2. 需要 Unicode 版 uGet 。
 3. 需要 GZU VPN 帳號。
 4. 自動生成標準文件夾。
 5. 可以結合 bat 來批量。
