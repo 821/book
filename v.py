@@ -8,17 +8,10 @@ def getAtt(url):
 	opener = urllib.request.build_opener(cookieProc)
 	urllib.request.install_opener(opener)
 
-	# 僞裝 IE ，取回頁面
-	header = {'User-Agent':'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)'}
-	req = urllib.request.Request(url, headers=header)
-	uopen = urllib.request.urlopen(req)
-	resp = uopen.read()
-	t = open('temp.txt', 'wb')
-	t.write(resp)
-	t.close()
+	urllib.request.urlretrieve(url, 'temp.txt')
 
 	# 取得各種變量
-	data=open("temp.txt","rU",encoding='UTF-8').read()
+	data=open('temp.txt','rU',encoding='UTF-8').read()
 	jpgPath=re.compile(r'(?<=jpgPath:")[0-9a-zA-Z\/]+(?=")')
 	strf=jpgPath.search(str(data)).group()
 	title=re.compile(u'(?<=<title>)[^<]+(?=</title>)')
