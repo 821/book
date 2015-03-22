@@ -1,75 +1,114 @@
 # -*- coding: utf-8 -*-
-import os,sys,codecs
+import requests,os,shutil,sys
 
-#生成多少個 fow 和 ! 好呢？
-fowtry=30
+proxy = {'http':'http://127.0.0.1:8002'}
+
+#代理下載，先試 png ，再試 jpg ，服務器不存在文件時返回 True 以便跳出循環。
+def pDown(cLink, cPath):
+	r = requests.get(cLink+".png", proxies=proxy, stream=True)
+	if r.status_code == 200:
+		with open(cPath, 'wb') as fd:
+			for chunk in r.iter_content(chunk_size=1024):
+				fd.write(chunk)
+	else:
+		r = requests.get(cLink+".jpg", proxies=proxy, stream=True)
+		if r.status_code == 200:
+			with open(cPath, 'wb') as fd:
+				for chunk in r.iter_content(chunk_size=1024):
+					fd.write(chunk)
+		else:
+			return True
+
+def AttDown(Atts, ssFolder, BasicURL):
+	FileExist=os.path.isfile(ssFolder+Atts+".pdg")
+	if FileExist == False:
+		pDown(BasicURL+Atts,ssFolder+Atts+".pdg")
 
 def getBook(gzBook):
-#釋放變量
+	#釋放變量
 	BasicURL=gzBook[0]
 	firstpage=int(gzBook[1])
 	lastpage=int(gzBook[2])
 	ssid=gzBook[3]
 	bookname=gzBook[4]
 
-#文件夾
+	#文件夾
 	ssFolder="F:\\ss\\"+bookname+"_"+ssid+"\\"
 	FolderExist=os.path.isdir(ssFolder)
 	if FolderExist == False:
 		os.mkdir(r'f:/ss/'+bookname+'_'+ssid+'/')
 
-#生成bookinfo
+	#生成bookinfo
 	BookinfoExist=os.path.isfile(ssFolder+"Bookinfo.dat")
 	if BookinfoExist == False:
 		Bookinfo=open(ssFolder+"Bookinfo.dat", "w+")
-		Bookinfo.write("[General Information]"+"\n\r")
-		Bookinfo.write("书名="+bookname+"\n\r")
-		Bookinfo.write("作者="+"\n\r")
-		Bookinfo.write("页数="+str(lastpage)+"\n\r")
-		Bookinfo.write("SS号="+ssid+"\n\r")
-		Bookinfo.write("DX号="+"\n\r")
-		Bookinfo.write("出版日期="+"\n\r")
-		Bookinfo.write("出版社="+"\n\r")
-		Bookinfo.write(BasicURL+"\n\r")
+		Bookinfo.write("[General Information]"+"\n")
+		Bookinfo.write("书名="+bookname+"\n")
+		Bookinfo.write("作者="+"\n")
+		Bookinfo.write("页数="+str(lastpage)+"\n")
+		Bookinfo.write("SS号="+ssid+"\n")
+		Bookinfo.write("DX号="+"\n")
+		Bookinfo.write("出版日期="+"\n")
+		Bookinfo.write("出版社="+"\n")
+		Bookinfo.write(BasicURL+"\n")
 		Bookinfo.close()
 
-#創建bat
-	batExist=os.path.isfile('add.bat')
-	if batExist == True:
-		os.remove('add.bat')
-		addbat=codecs.open('add.bat', 'wb', 'utf-8_sig')
-	else:
-		addbat=codecs.open('add.bat', 'wb', 'utf-8_sig')
+	#封面書名版權
+	AttDown("cov001", ssFolder, BasicURL)
+	AttDown("cov002", ssFolder, BasicURL)
+	AttDown("bok001", ssFolder, BasicURL)
+#	AttDown("bok002", ssFolder, BasicURL)
+	AttDown("leg001", ssFolder, BasicURL)
 
-#封面書名版權
-	addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=bok001.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'bok001.png\n\r')
-	addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=leg001.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'leg001.png\n\r')
-	addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=cov001.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'cov001.jpg\n\r')
-	addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=cov002.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'cov002.jpg\n\r')
-	addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=bok001.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'bok001.jpg\n\r')
-	addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=leg001.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'leg001.jpg\n\r')
+	#目錄
+	for num in range(1, 1000):
+		pgNum=str(num).zfill(5)
+		ssFile=ssFolder+"!"+pgNum+".pdg"
+		FileExist=os.path.isfile(ssFile)
+		if FileExist == True:
+			FileSize=os.path.getsize(ssFile)
+			if FileSize == 0:
+				if pDown(BasicURL+"!"+pgNum, ssFile):
+					break
+		else:
+			if pDown(BasicURL+"!"+pgNum, ssFile):
+				break
 
-#正文
-	for num in range(firstpage,lastpage+1):
-		pNum=str(num).zfill(6)
-		addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename='+pNum+'.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+pNum+'.png\n\r')
-	for num in range(firstpage,lastpage+1):
-		pNum=str(num).zfill(6)
-		addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename='+pNum+'.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+pNum+'.jpg\n\r')
+	#前言
+	for num in range(1, 1000):
+		pgNum=str(num).zfill(3)
+		ssFile=ssFolder+"fow"+pgNum+".pdg"
+		FileExist=os.path.isfile(ssFile)
+		if FileExist == True:
+			FileSize=os.path.getsize(ssFile)
+			if FileSize == 0:
+				if pDown(BasicURL+"fow"+pgNum, ssFile):
+					break
+		else:
+			if pDown(BasicURL+"fow"+pgNum, ssFile):
+				break
 
-#目錄前言
-	for num in range(1, fowtry+1):
-		iNum=str(num).zfill(5)
-		fNum=str(num).zfill(3)
-		addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=!'+iNum+'.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'!'+iNum+'.png\n\r')
-		addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=fow'+fNum+'.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'fow'+fNum+'.png\n\r')
-	for num in range(1, fowtry+1):
-		iNum=str(num).zfill(5)
-		fNum=str(num).zfill(3)
-		addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=!'+iNum+'.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'!'+iNum+'.jpg\n\r')
-		addbat.write('uget --folder="'+'F:\\ss\\'+bookname+'_'+ssid+'" --filename=fow'+fNum+'.pdg --proxy-type=1 --proxy-host=127.0.0.1 --proxy-port=8002 '+BasicURL+'fow'+fNum+'.jpg\n\r')
-
-	os.system("add.bat")
+	#正文
+	for num in range(firstpage, lastpage+1):
+		pgNum=str(num).zfill(6)
+		ssFile=ssFolder+pgNum+".pdg"
+		FileExist=os.path.isfile(ssFile)
+		if FileExist == True:
+			FileSize=os.path.getsize(ssFile)
+			if FileSize == 0:
+				pDown(BasicURL+pgNum, ssFile)
+				if num == lastpage:
+					shutil.move(ssFolder,"F:\\ss\\done\\"+bookname+"_"+ssid+"\\")
+					print(bookname+ssid)
+			else:
+				if num == lastpage:
+					shutil.move(ssFolder,"F:\\ss\\done\\"+bookname+"_"+ssid+"\\")
+					print(bookname+ssid)
+		else:
+			pDown(BasicURL+pgNum, ssFile)
+			if num == lastpage:
+				shutil.move(ssFolder,"F:\\ss\\done\\"+bookname+"_"+ssid+"\\")
+				print(bookname+ssid)
 
 #與bat對接
 def main():
