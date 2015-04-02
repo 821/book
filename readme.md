@@ -25,17 +25,10 @@
 5. 要用目錄還要結合 DjVuToy 1.23 。
 6. 沒與 bat 相接是因爲 CADAL 用得很少，畢竟不如 CX 淸晰。
 
-## gz0.py
-1. 用於下載 GZU ZJK 。
-2. 需要 PycURL 。
-3. 需要 GZU VPN 帳號。
-4. 自動生成標準文件夾，下載時文件夾放在 F:\\ss\\ ，完成後移入 F:\\ss\\done\\ 。
-5. 可以結合 bat 來批量。
-6. 經常出問題自動跳出，所以比較適合補頁。
-
 ## gz1.py
-1. gz0.py 用 Requests 重寫下載函數。
-2. 編碼改成 utf-8 ，其他和 gz0.py 一樣。
+1. Function: downloading GZU ZJK books with multithreads.
+2. GZU VPN is required.
+3. Standard folders will be generated in F:\\ss\\, and move to F:\\ss\\done\\ if downloads are completed without error.
 
 ## gz2.py
 1. 用於下載 GZU ZJK 。
@@ -47,10 +40,6 @@
 7. 當前默認嘗試前言和目錄到 30 頁。對於辭書通常不夠，要手動改。
 8. uGet 下載的文件，時間戳和服務器上是一樣的。
 9. uGet 的資源佔用較大，有時很討厭。
-
-## gz3.py
-1. gz1.py 添加了多線程。一個下附屬頁，四個把正文分成四段分別下載。
-2. 線程多易出錯，但夜間速度可喜。
 
 ## hl.py
 1. 用於尋找 ECUST 號。
@@ -70,8 +59,8 @@
 
 ## GoodNB.user.js
 1. 用於修正 NB ZJK 返回鏈。
-2. 需要 NB VPN 。
+2. 獲得返回鏈需要 NB ZJK cookie 。
 
 ## GoodGZ.user.js
 1. 用於修正 GZU ZJK 返回鏈，以運用於 gz1.py
-2. 需要 GZU VPN 。
+2. 獲得返回鏈需要 GZU VPN 和 GZU ZJK cookie 。
