@@ -46,10 +46,8 @@
 2. 衹是個最簡單的示範腳本，體現了 Requests 模塊在相關領域的優越性。
 
 ## DX2All.user.js
-1. 用於在 bookDetail 頁中顯示 ssid ，通向 BK 查詢頁及 NB ZJK, JN ZJK, GZU ZJK 返回鏈獲取頁。
-2. 亦可用於長春、大連等，支持 EZ 和 SSLVPN 模式。
-3. 沒有登入相應機構 VPN 或 EZ 時，有的獲取頁打不開。
-4. 登入 VPN 而沒登入 ZJK 時，有的獲取頁是空白的。
+1. Show ssid and links to BK index, NB ZJK, ZG ZJK, JN ZJK, GZU ZJK in bookDetail pages.
+2. Cookie and VPN/EZ are required.
 
 ## Se2All.user.js
 1. 用於在普通搜索頁中顯示 ssid ，通向 BK 查詢頁及 NB ZJK, JN ZJK, GZU ZJK 返回鏈獲取頁。
