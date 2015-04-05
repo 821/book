@@ -1,7 +1,7 @@
 ## General
 1. 懶得每次敲那麼多字，所以用短文件名。
 2. 測試都是實際下載中發生的，很多 bug 沒測到一點都不奇怪。
-3. .py 衹測試最新穩定版 Python （目前爲 3.4 ）， .js 衹測試 Chrome Stable + Tampermonkey 。
+3. Environment: Python 3.4, Chrome + TamperMonkey.
 
 ## a.py
 1. 用於補版權。
@@ -56,9 +56,10 @@
 4. 登入 VPN 而沒登入 ZJK 時，有的獲取頁是空白的。
 
 ## GoodNB.user.js
-1. 用於修正 NB ZJK 返回鏈。
-2. 獲得返回鏈需要 NB ZJK cookie 。
+Function: rectify NB ZJK response links.
 
 ## GoodGZ.user.js
-1. 用於修正 GZU ZJK 返回鏈，以運用於 gz1.py
-2. 獲得返回鏈需要 GZU VPN 和 GZU ZJK cookie 。
+Function: rectify GZU ZJK response links for gz1.py.
+
+## GoodGZ.user.js
+Function: rectify ZG ZJK response links.
