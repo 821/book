@@ -4,7 +4,7 @@ import requests,os,shutil,sys,threading,time
 proxy = {'http':'http://127.0.0.1:8002'}
 
 def tryLink(link):
-	global r,die
+	global die
 	die = 0
 	try:
 		r = requests.get(link, proxies=proxy, stream=True, timeout=None)
@@ -14,27 +14,28 @@ def tryLink(link):
 			r = requests.get(link, proxies=proxy, stream=True, timeout=None)
 		except BaseException:
 			print(link)
-			return die = die + 1
+			die = die + 1
+			return
 		else:
 			return r
 	else:
 		return r
 
 def pDown(link, Path):
-	tryLink(link+'.png')
-	if r.status_code == 200:
+	s = tryLink(link+'.png')
+	if s.status_code == 200:
 		with open(Path, 'wb') as fd:
-			for chunk in r.iter_content(chunk_size=1024):
+			for chunk in s.iter_content(chunk_size=1024):
 				fd.write(chunk)
-			del r
-	elif r.status_code == 404:
+			del s
+	elif s.status_code == 404:
 		tryLink(link+'.jpg')
-		if r.status_code == 200:
+		if s.status_code == 200:
 			with open(Path, 'wb') as fd:
-				for chunk in r.iter_content(chunk_size=1024):
+				for chunk in s.iter_content(chunk_size=1024):
 					fd.write(chunk)
 				del r
-		elif r.status_code == 404:
+		elif s.status_code == 404:
 			return True
 	
 
