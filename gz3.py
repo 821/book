@@ -89,6 +89,7 @@ class attsDown(threading.Thread):
 		fowDown(self.ssFolder, self.BasicURL)
 		tocDown(self.ssFolder, self.BasicURL)
 
+# Very lousy way of multi threading
 class pageDown(threading.Thread):
 	def __init__(self, firstpage, lastpage, ssFolder, BasicURL):
 		threading.Thread.__init__(self)
