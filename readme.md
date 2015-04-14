@@ -38,8 +38,10 @@
 5. 可以結合 bat 來批量。
 6. 廢 link 很多，要在 uGet 手動刪除。
 7. 當前默認嘗試前言和目錄到 30 頁。對於辭書通常不夠，要手動改。
-8. uGet 下載的文件，時間戳和服務器上是一樣的。
-9. uGet 的資源佔用較大，有時很討厭。
+
+## gz3.py
+1. Download functions come from gz1.py.
+2. Add GUI for the script.
 
 ## hl.py
 1. 用於尋找 ECUST 號。
