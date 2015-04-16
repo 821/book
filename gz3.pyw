@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
-import requests,os,shutil,sys,threading,time,win32con
+import requests,os,shutil,sys,threading,time,win32con,win32clipboard
 from tkinter import *
-import win32clipboard as w
 
 proxy = {'http':'http://127.0.0.1:8002'}
 
+die = 0
 def tryLink(link):
 	global die
-	die = 0
 	try:
 		r = requests.get(link, proxies=proxy, stream=True, timeout=None)
 	except BaseException:
@@ -16,7 +15,7 @@ def tryLink(link):
 			r = requests.get(link, proxies=proxy, stream=True, timeout=None)
 		except BaseException:
 			print(link)
-			die = die + 1
+			die += 1
 			return
 		else:
 			return r
@@ -162,13 +161,14 @@ def getBook(gzBook):
 
 
 wd = Tk() # 總窗口
+wd.title("GZU ZJK")
 rows = 10 # 開 10 行
 
 # 獲取剪貼板
 def getClip():
-	w.OpenClipboard()
-	ty=w.GetClipboardData(win32con.CF_TEXT).decode(encoding="UTF-8")
-	w.CloseClipboard()
+	win32clipboard.OpenClipboard()
+	ty=win32clipboard.GetClipboardData(win32con.CF_TEXT).decode(encoding="UTF-8")
+	win32clipboard.CloseClipboard()
 	return ty
 
 # 每一條的框架
@@ -202,4 +202,11 @@ def dl():
 dlB = Button(wd,text='Start Downloading',command=(lambda:dl()))
 dlB.grid(row=rows+1,column=0)
 
+
+wd.update() # 窗口的大小已改變，更新變量數據
+wdW = wd.winfo_width()
+wdH = wd.winfo_height()
+scH = wd.winfo_screenheight()
+wdGeo = '%dx%d+%d+%d'%(wdW, wdH, 0, scH-wdH-100)
+wd.geometry(wdGeo)
 wd.mainloop()

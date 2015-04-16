@@ -39,7 +39,7 @@
 6. 廢 link 很多，要在 uGet 手動刪除。
 7. 當前默認嘗試前言和目錄到 30 頁。對於辭書通常不夠，要手動改。
 
-## gz3.py
+## gz3.pyw
 1. Download functions come from gz1.py.
 2. Add GUI for the script.
 
