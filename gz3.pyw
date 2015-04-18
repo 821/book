@@ -184,7 +184,7 @@ class pair(object):
 		self.ent.insert(0,getClip())
 # 按鈕及行爲
 	def fra(self):
-		but = Button(wd,text='Paste',command=(lambda:self.newText()))
+		but = Button(wd,text='Paste',command=self.newText)
 		but.grid(row=self.r,column=1)
 
 # 根據框架生成 rows 條
@@ -199,7 +199,7 @@ def dl():
 		exec('getBook(p' + str(i) + '.ent.get())')
 
 # 最終按鈕
-dlB = Button(wd,text='Start Downloading',command=(lambda:dl()))
+dlB = Button(wd,text='Start Downloading',command=dl)
 dlB.grid(row=rows+1,column=0)
 
 
