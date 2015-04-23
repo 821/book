@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import requests,os,shutil,sys,threading,time,win32con,win32clipboard
+import requests,os,shutil,sys,threading,time,clipboard
 from tkinter import *
 
 proxy = {'http':'http://127.0.0.1:8002'}
@@ -165,12 +165,6 @@ wd.title("GZU ZJK")
 rows = 10 # 開 10 行
 
 # 獲取剪貼板
-def getClip():
-	win32clipboard.OpenClipboard()
-	ty=win32clipboard.GetClipboardData(win32con.CF_TEXT).decode(encoding="UTF-8")
-	win32clipboard.CloseClipboard()
-	return ty
-
 # 每一條的框架
 class pair(object):
 # 文本框
@@ -181,7 +175,7 @@ class pair(object):
 # 刪舊加新
 	def newText(self):
 		self.ent.delete(0,END)
-		self.ent.insert(0,getClip())
+		self.ent.insert(0,clipboard.paste())
 # 按鈕及行爲
 	def fra(self):
 		but = Button(wd,text='Paste',command=self.newText)

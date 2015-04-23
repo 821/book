@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script language="JavaScript" src="/js/inc.js"></script>
+<script language="JavaScript" src="/js/book/bookDetail.js"></script>
+<script language="JavaScript" src="/js/leftajax.js"></script> 
+<script language="JavaScript" src="/js/subebook.js"></script>
+<script language="JavaScript" src="/js/frame2.js"></script> 
+<script language="JavaScript">                     
+var dx="000007552009";
+var adid="689";
+var feilei="09030601";
+var bookname="《粤西十四家诗钞》校评  上"; 
+var allinfo="陈柱编；高湛祥，陈湘校评||南宁：广西人民出版社||1997.11||7-219-03552-7";
+function morelib(){
+	var host = window.location.host;
+	if(host.indexOf("duxiu.com")!=-1 || host.indexOf("flytv.com.cn")!=-1){
+		window.location.href="/other.do?go=sbmlib&dxid=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E";
+	}else{
+		window.location.href="/dxmorelib.jsp?dxid=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E";
+	}
+}
+function subtoRefer(INeedFull,firsturl){
+	if(!INeedFull){
+		if(!confirm('提示：您申请传递的图书可以直接点击全文阅读按钮来访问原文。不能直接点击本馆电子全文链接时再进行文献传递，是否确定进行文献传递？')){
+			return ;
+		}
+	}
+	
+		alert('请登录后再进行文献传递!');
+		return ;
+	
+	
+}
+</script>
+<script language="javascript">
+function checkfav(){
+	  jQuery.ajax({
+	    type:'post',
+	    url : 'http://fav.fanya.xuexi365.net/ifFav.js?callback=?',
+	    data : 'urlArray=http://book.ccelib.com/bookDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E',
+	    dataType : 'jsonp',
+	    success : function(data) {
+	      if(data=="true"){
+	        jQuery(".fav").hide();
+	        jQuery(".faved").show();
+	      }
+	    }
+	  });
+	}
+function changchunFav(title,author,year,url){
+	  jQuery.ajax({
+	    type:'get',
+	    url : 'http://mylib.ccut.edu.cn/fav.jsp?callback=?',
+	    data : {'author':author,'title':title,'year':year,'url':url},
+	    dataType : 'jsonp',
+	    success : function(data) {
+	    	if(data.code==1){
+		   		 alert("收藏成功");
+		   	 }else if(data.code==3){
+		   		 window.location.href="http://mylib.ccut.edu.cn";
+		   	 }else{
+		   		 alert("收藏失败");
+		   	 }
+	    }
+	  });
+	}
+</script>
+<script language="javascript">
+function pageLoad() {
+	jQuery(".width960").css("width","900px");
+};
+</script>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>《粤西十四家诗钞》校评  上_长春网络图书馆图书搜索</title>
+<link rel=stylesheet type=text/css href="/style/bookNewDetail.css"/>
+<link rel=stylesheet type=text/css href="http://mylib.duxiu.com/style/whofav.css"/>
+<meta name=GENERATOR content="MSHTML 8.00.7600.16384" />
+</head>
+<body  onload="pageLoad()">
+<div id=noscroll>
+<a name=ctop></a> 
+
+ 
+<link href="/views/style/more.css" rel="stylesheet" type="text/css">
+<link href="/style/suggestinput.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://www.blyun.com/views/js/jquery.min.js"></script>
+<SCRIPT LANGUAGE="JavaScript" src="/views/js/fun.js"></script>
+<SCRIPT LANGUAGE="JavaScript" src="/views/js/public.js"></script>
+<script type="text/javascript" src="/js/suggest.js"></script>
+<script language="JavaScript" src="/views/js/top.js"></script>
+
+<DIV class="clearfix">
+
+
+<DIV id=m_logo><a href=""><IMG src="/images/area/ccelib/logosmall.jpg" style="border:0"></a></DIV>
+
+<div id="m_search">
+<form action="/search" id = "topuserinput" name = "userinput">
+ <div id="m_top_menu" style="zoom:1; position:relative;">
+  <div class="hr"></div>
+    <ul style="position:relative;">
+   	
+    	<li id = "tag_1" ><a href="javaScript:changeTag('tag_1','searchMix','searchFMix')"><span>全部</span></a></li>
+    
+    	<li id = "tag_2" class = "on"><a href="javaScript:changeTag('tag_2','search','searchFBook')"><span>图书</span></a></li>
+    
+    	<li id = "tag_3" ><a href="javaScript:changeTag('tag_3','searchJour','searchFJour')"><span>期刊</span></a></li>
+    
+    	<li id = "tag_4" ><a href="javaScript:changeTag('tag_4','searchNP','')"><span>报纸</span></a></li>
+    
+    	<li id = "tag_5" ><a href="javaScript:changeTag('tag_5','searchThesis','searchFThesis')"><span>学位论文</span></a></li>
+    
+    	<li id = "tag_6" ><a href="javaScript:changeTag('tag_6','searchCP','searchFCP')"><span>会议论文</span></a></li>
+    
+    	<li id = "tag_7" ><a href="javaScript:changeTag('tag_7','searchPatent','searchFPatent')"><span>专利</span></a></li>
+    
+    	<li id = "tag_8" ><a href="javaScript:changeTag('tag_8','searchStd','searchFStd')"><span>标准</span></a></li>
+    
+    	<li id = "tag_9" ><a href="javaScript:changeTag('tag_9','searchVideo','')"><span>视频</span></a></li>
+    
+    	<li id = "tag_10" ><a href="javaScript:changeTag('tag_10','searchInfo','')"><span>信息资讯</span></a></li>
+    
+    </ul>
+    </div>
+<div class="sinput" style="clear:both">
+<input type="text" class="txtsearch" name = "sw" value = "《粤西十四家诗钞》校评  上" id = "topsw" autocomplete=off/>
+		<script>
+			_jsonpSuggest = function(e){
+				var result = []; 
+				if(unescape(e.q)==jQuery("#topsw").val())
+					jQuery(unescape(e.values).split("|")).each(function(){ result.push(this); })
+				window.sugresult = result.join("\r\n");
+			}
+			jQuery("#topsw").ready(function(){jQuery("#topsw").suggest('http://relt1.duxiu.com/swjson.jsp?jsoncallback=_jsonpSuggest',{});})
+	  </script>
+	
+		<input style="width:80px;font-weight:bold;"  type="button" value="中文搜索" class="btnsearch" name = "ch_search"  onClick="indexsearch('ch');" id = "ch_search"/>
+	
+	
+		<input type="button" value="外文搜索" style = "width:80px;" class="btnsearch" name = "en_search"  onClick="indexsearch('en');" id = "en_search" />
+	
+	
+		<A href="/advsearch.jsp">高级搜索</A>
+	
+	
+	
+	<input id='topallsw' name='allsw' type='hidden' value='#,all'>
+	<input id='topbCon' name='bCon' type='hidden' value=''>
+	<input name = "ecode" value = "utf-8" type = "hidden">
+	<input name = "channel" id = "topchannel" value = "search" type = "hidden"> 
+</div>
+<div class="sradio" id = "sradio">
+
+搜索：<INPUT id=slt0 type="radio" checked value="all" name=Field><label for="slt0">全部字段</label>
+<INPUT id=slt1 type=radio value="1" name=Field ><label for="slt1">书名</label>
+<INPUT id=slt2 type=radio value="2" name=Field ><label for="slt2">作者</label>
+
+
+
+
+
+
+
+
+</div>
+</form>
+</div>
+</DIV>
+<script type="text/javascript">
+var df_tag="2";
+var ch_channel = "search";
+var en_channel = "searchFBook";
+</script>
+<iframe border="0" name=refresh marginwidth=0 framespacing=0 marginheight=0 src="/refresh.jsp" frameborder=0 noResize width=0 scrolling=no height=0></iframe>
+
+	<style>
+		.frametop{MARGIN-BOTTOM: 40px; padding-left:5px; width:auto!important; width:860px; min-width:860px;}
+		.middle{width: 611px;}
+		#bookphoto{text-align:center;width:159px;}
+		#noscroll{min-width:900px; width:900px; margin:0 auto;}
+	</style>
+	 
+<script language="JavaScript" src="/js/book/score.js"></script> 
+    
+  <div class="clearfix frametop">         					
+        <div class="left middle">                               
+       	 <div class="bookInfo clearfix">
+   			<div class="left photo" id="bookphoto">
+   			<img style="border:1px solid #bababa " src="http://unicover.duxiu.com/coverNew/CoverNew.dll?iid=656663686B65636C656A5A98A9AC9DA95A653136363032323634" border=0  />
+   			 <div class="grade s4" id="grade1">
+                    <a href="#2"></a>
+                    <a href="#2"></a>
+                    <a href="#2"></a>
+                    <a href="#2"></a>
+                    <a href="#2"></a>
+             </div>
+             <div class="score"></div>
+             <span style="color:#666; font-size:14px;" id="total"></span>  	
+             	      		
+   			</div>
+   			
+   		<div class="right info">
+   		<div class="infoHd">
+
+   		《粤西十四家诗钞》校评  上 </div>
+   			<table width="100%">
+   				<tr>
+   					<td width="320">
+   					     <input type="hidden" id="dxid" value="000007552009"  />
+   					  	 
+						 <p>【作  者】<a href="/search?sw=%E9%99%88%E6%9F%B1&Field=2&channel=search&ecode=UTF-8">陈柱</a>编；<a href="/search?sw=%E9%AB%98%E6%B9%9B%E7%A5%A5&Field=2&channel=search&ecode=UTF-8">高湛祥</a>，<a href="/search?sw=%E9%99%88%E6%B9%98&Field=2&channel=search&ecode=UTF-8">陈湘</a>校评</p>							 
+						 <p>【出版发行】
+						 南宁：广西人民出版社 , 1997.11
+						 </p> 
+						 <p>【ISBN号】7-219-03552-7</p>
+						 <p>【页  数】
+						 486
+						 </p>	 
+						 
+						 <p>【原书定价】60.00</p>
+						 
+					</td>
+					
+					<td width="128" valign="top" style="padding-top:10px">
+					 
+						<div class="do">
+						  
+					     	<div class="btn"><a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E" target = "_blank">部分阅读</a></div>
+					     
+					        			<div class="btn"><a title="功能将您需要的全文发送到您的邮箱！" href="javaScript:subtoRefer(true,'/gofirstdrs.jsp?dxNumber=000007552009&d=6FE44981C52206ECB18E98ECFBC4A9C2')">图书馆文献传递</a></div>
+					        	
+							
+					    </div> 
+					      
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<p>【中图法分类号】I222</p>
+					</td>
+				</tr>
+			</table>
+			
+	 
+	<!--作者简介-->
+	
+	 <p>【参考文献格式】陈柱编；高湛祥，陈湘校评.
+《粤西十四家诗钞》校评  上.
+南宁：广西人民出版社,
+1997.11.
+</p>
+	<p><a href="/dxadvice.jsp"  target="_blank"><img style="BORDER-RIGHT-WIDTH: 0px; WIDTH: 79px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-LEFT-WIDTH: 0px; vertical-align:middle;" src="images/feedback.bmp" /></a>
+	
+		<a style="padding-left:10px" onclick=favone() href="#2"><img style="BORDER-RIGHT-WIDTH: 0px; WIDTH: 79px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-LEFT-WIDTH: 0px; vertical-align:middle;" src="images/mysc.gif" /></a>
+	
+	
+	</p>
+    </div>  
+    </div>
+	
+	
+	 <div class="readOnline">
+	 		
+         	<div class="readOlHd">在线阅读</div>
+         	<ul class="readOlBd2 clearfix">
+                  	<li  class="first">
+                  		
+                      	<a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=1" target = "_blank" class="img"></a>
+                         <a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=1" target = "_blank">书名页</a>
+                         
+                      </li>
+                  	<li >
+                  	
+                      	<a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=2" target = "_blank" class="img"></a>
+                          <a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=2" target = "_blank">版权页</a>
+                       
+                     </li>
+                  	<li >
+                  	
+                      	<a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=3" target = "_blank" class="img"></a>
+                         <a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=3" target = "_blank">前言页</a>
+                         
+                    </li>
+                  	<li style="margin-left:25px;">
+                  		
+                      	<a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=4" target = "_blank" class="img"></a>
+                          <a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=4" target = "_blank">目录页</a>
+                          
+                     </li>
+                  	<li style="margin-left:23px;">
+                  	
+                      	<a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=5" target = "_blank" class="img"></a>
+                        <a href="/readDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&t=5" target = "_blank">试读页</a>
+                     
+                     </li>
+                  	<li>
+                  		 
+                         	<a class="img" style="opacity: 0.2; filter: alpha(opacity=20); BACKGROUND-COLOR: #eee;"></a>
+                            <a style="color: #eee;">封底页</a>
+                         
+                    </li>
+              </ul>                                  
+    </div>	
+     
+     
+    <div class="popWin_bg" id="popWin_bg"></div>
+	<div id="popWin">
+	    <div class="tit clearfix">
+	       <a class="popClose" href="javascript: closediv('popWin')" title="关闭"></a>
+	       <span id = "imageTitle"></span>
+	    </div>
+	    <div class="album">
+	       <a id="imgbprev" class="over" href=""><b></b></a>
+	       <a id="imgbnext" class="over" href=""><b></b></a>
+	       <div class="popCnt" align="center"><img src="" id = "alertsimg" width="603" height="442" /></div>
+	    </div>
+	</div>
+	<div class="readOnline" style="width:611px;display:none;" id = "bookinimage" >
+		<div class="readOlHd clearfix"><span style="float:right;font-weight:normal;font-size:12px;margin-right:10px;display:inline;"><a href="javascript:void()" id="S" style="display:'';" onclick="javascript:ShowOHidConent('show')">更多</a><a href="javascript:void()" id="H" style="display:none;" onclick="javascript:ShowOHidConent('hid')">隐藏</a></span>书内插图及表格(试用)</div>
+	    <ul class="imgTable clearfix" id="contentH"></ul>
+	    <ul class="imgTable clearfix" id="contentS" style="display:none;"></ul>                                      
+	 </div>
+     
+     <div class="readOnline" >
+    	<div class="readOlHd" style="padding-right:10px;"><span style="float:right; font-weight:normal; font-size:12px;">
+							&nbsp;&nbsp;<a href = "/other.do?go=scomment&dxid=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E#addcomment"  target = "_blank"  style="display:inline-block; margin-left:10px">我要写书评</a>
+							<a href = "/other.do?go=scomment&dxid=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E" target = "_blank" style="display:inline-block"  ><span id = "plcount"></span></a>
+							</span>图书评论</div>
+		<div id="cmtcontent">
+		</div>       
+    </div>
+
+      
+   	<div class=readOnline>
+        <div class=readOlHd><span class="right way"><a href="javaScript:changeStyle('1')" style="color:#039">列表</a> | <a href="javaScript:changeStyle('2')" style="color:#039">图片</a></span>你可能还需要</DIV>
+            <div class="boxBd clearfix" id="tupian" style="padding-left:0;"><span class="left leftTrigger" id="triggerLeft"></span>
+                <div class="left bookList" id="bookList">
+                    <ul class="left item" id="item" style="left: -88px;">
+                      
+								<li>
+								<a href="/bookDetail.jsp?dxNumber=000030001546&d=034ED0EEF806F9A3602935188DE7B1CC" target = "_blank"><img src="http://unicover.duxiu.com/coverNew/CoverNew.dll?iid=6769656B66696567696A5C9AABAE9FAB5C673136303934333936" /></a>
+								<a href = "/bookDetail.jsp?dxNumber=000030001546&d=034ED0EEF806F9A3602935188DE7B1CC" target = "_blank">唐诗宋词专题作品选  第2版</a>
+								</li>
+							
+								<li>
+								<a href="/bookDetail.jsp?dxNumber=000030026300&d=B53D5018C759FC9BCEEA2319084E8E3D" target = "_blank"><img src="http://unicover.duxiu.com/coverNew/CoverNew.dll?iid=646662686C64626A63645997A8AB9CA859643136303938323433" /></a>
+								<a href = "/bookDetail.jsp?dxNumber=000030026300&d=B53D5018C759FC9BCEEA2319084E8E3D" target = "_blank">中国传世山水画  卷1</a>
+								</li>
+							
+								<li>
+								<a href="/bookDetail.jsp?dxNumber=000030026301&d=6BCB0E3BE140F973CDC9345617D4E61E" target = "_blank"><img src="http://unicover.duxiu.com/coverNew/CoverNew.dll?iid=646662686C64626A63655997A8AB9CA859643136303938323433" /></a>
+								<a href = "/bookDetail.jsp?dxNumber=000030026301&d=6BCB0E3BE140F973CDC9345617D4E61E" target = "_blank">中国传世山水画  卷2</a>
+								</li>
+							          
+                    </ul>
+                </div>
+                <span class="right rightTrigger" id="triggerRight"></span>
+            </div>
+            <div class="boxBd" style="display:none;padding-left:10px" id="leibiao">						
+							
+							<a href = "/bookDetail.jsp?dxNumber=000030001546&d=034ED0EEF806F9A3602935188DE7B1CC" target = "_blank" style="text-decoration:none;color:#039">1.唐诗宋词专题作品选  第2版</a><br/>
+						
+							<a href = "/bookDetail.jsp?dxNumber=000030026300&d=B53D5018C759FC9BCEEA2319084E8E3D" target = "_blank" style="text-decoration:none;color:#039">2.中国传世山水画  卷1</a><br/>
+						
+							<a href = "/bookDetail.jsp?dxNumber=000030026301&d=6BCB0E3BE140F973CDC9345617D4E61E" target = "_blank" style="text-decoration:none;color:#039">3.中国传世山水画  卷2</a><br/>
+												
+		    </div>
+      </div> 
+                                  
+  </div>
+               
+                <div class="left rightside" style="" id="shhdbs">
+                <form id="fav_one" name="fav_one" method="post" action="http://mylib.duxiu.com/a/f.action" target="_blank">
+				   <input type="hidden" name="f[0].title" id="titlefav" value="《粤西十四家诗钞》校评  上"/>
+				   <input type="hidden" name="f[0].url" id="urlfav" value="http://book.ccelib.com/bookDetail.jsp?dxNumber=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E"/>
+				   <input type="hidden" name="f[0].memo" id="memofav" value="<TABLE><TR><TD><IMG height=110 alt=封面 src='http://unicover.duxiu.com/coverNew/CoverNew.dll?iid=656663686B65636C656A5A98A9AC9DA95A653136363032323634' width=75 border=1></TD><TD>作者:陈柱编；高湛祥，陈湘校评&nbsp;&nbsp;页数:486&nbsp;&nbsp;出版社:南宁：广西人民出版社&nbsp;&nbsp;出版日期:1997.11&nbsp;&nbsp;&lt;br&gt;</TD></TR></TBODY></TABLE>"/> 
+				   <input type="hidden" name="f[0].ssid" id="ssidfav" value="12471816"/>
+				   <input type="hidden" name="f[0].dxid" id="dxidfav" value="000007552009"/>
+				   <input type="hidden" name="f[0].classify" id="classifyfav" value="1"/>
+			   	   <input type="hidden" name="cataid" id="cataidfav" value=""/>  
+				   <input type="hidden" name="ec" value="utf-8"/>
+				   <input type="hidden" name="unitid" value="689"/>
+				   <input type="hidden" name="refer" value="1"/>
+				</form>                	
+				<!-- 朗润书店 提交表单 -->
+				<a id="langrun" href="http://www.lrbook.com/find-book.html?orders.bookname=%E3%80%8A%E7%B2%A4%E8%A5%BF%E5%8D%81%E5%9B%9B%E5%AE%B6%E8%AF%97%E9%92%9E%E3%80%8B%E6%A0%A1%E8%AF%84++%E4%B8%8A&orders.author=%E9%99%88%E6%9F%B1%E7%BC%96%EF%BC%9B%E9%AB%98%E6%B9%9B%E7%A5%A5%EF%BC%8C%E9%99%88%E6%B9%98%E6%A0%A1%E8%AF%84&orders.publisher=%E5%8D%97%E5%AE%81%EF%BC%9A%E5%B9%BF%E8%A5%BF%E4%BA%BA%E6%B0%91%E5%87%BA%E7%89%88%E7%A4%BE&orders.publishdate=1997.11&comewhere=%E8%AF%BB%E7%A7%80&ec=utf-8"></a>
+			
+					<!-- 互助平台的form -->
+					<form id = "forum" name = "forum" action="http://bbs.duxiu.com/post.aspx" method = "post" target = "_blank">
+					<input name = "id" value = "6367" type = "hidden"/>
+					<input name = "action" value = "forum" type = "hidden"/>
+					<input name = "title" value = "%E3%80%8A%E7%B2%A4%E8%A5%BF%E5%8D%81%E5%9B%9B%E5%AE%B6%E8%AF%97%E9%92%9E%E3%80%8B%E6%A0%A1%E8%AF%84++%E4%B8%8A" type = "hidden"/>
+					<input name = "type" value = "%E5%9B%BE%E4%B9%A6" type = "hidden"/>
+					<input name = "content" value = "%0D%0A%E3%80%90%E4%BD%9C%E3%80%80%E8%80%85%E3%80%91%E9%99%88%E6%9F%B1%E7%BC%96%EF%BC%9B%E9%AB%98%E6%B9%9B%E7%A5%A5%EF%BC%8C%E9%99%88%E6%B9%98%E6%A0%A1%E8%AF%84%0D%0A%E3%80%90%E5%BD%A2%E6%80%81%E9%A1%B9%E3%80%91486%2C%0D%0A%E3%80%90%E5%87%BA%E7%89%88%E9%A1%B9%E3%80%91%E5%8D%97%E5%AE%81%EF%BC%9A%E5%B9%BF%E8%A5%BF%E4%BA%BA%E6%B0%91%E5%87%BA%E7%89%88%E7%A4%BE%2C1997.11%0D%0A%E3%80%90ISBN%E5%8F%B7%E3%80%917-219-03552-7%0D%0A%E3%80%90%E5%8E%9F%E4%B9%A6%E5%AE%9A%E4%BB%B7%E3%80%9160.00%0D%0A%E3%80%90%E4%B8%AD%E5%9B%BE%E6%B3%95%E5%88%86%E7%B1%BB%E5%8F%B7%E3%80%91I222" type = "hidden"/>
+					<input name = "dxid" value = "000007552009" type = "hidden"/>
+					<input name = "ssid" id = "forumssid"  value = "12471816" type = "hidden"/>
+					</form>
+					 
+					
+					
+					<form id="downexecl" name="downexecl"  method="post" action="/viewsave.jsp">
+					<input id="dxids" name="dxids" value="000007552009" type="hidden"/>
+					<input id="dxidskey" name="dxidskey" value="725f00d463e6a9330fb064dec4d346f72e1d15f3853baccc6b2d9261981d7c35A98713B5AE3E57373FA47BC4265E7CA8" type="hidden"/>
+					</form>
+                <div id="frameshow">
+                
+				<script>
+				send_requestlib("/getlibinfo.jsp?dx=000007552009&d=8F8B9322D7D4AB6075545DE2847FC476&ssn=12471816&sname=%A1%B6%D4%C1%CE%F7%CA%AE%CB%C4%BC%D2%CA%AB%B3%AE%A1%B7%D0%A3%C6%C0++%C9%CF&ebookurl=0&classid=09030601");
+				</script>                             
+                </div>
+                
+                	<div class="box border">
+                    	<div class="boxHd">推荐图书馆购买</div>                        
+                        <div class="boxBd">
+                        <a href='javascript:subTobook(adid,dx,8,feilei);'>推荐购买电子图书</a><br/><a href='javascript:subTobook(adid,dx,6,feilei);'>推荐购买纸本图书</a><br/><a href="/listsubebook.jsp" target="_blank">查看本馆全部推荐</a>
+						<script language="JavaScript" src="/js/cert.js"></script>                        	
+                        </div>
+                    </div>
+                      
+     
+     <div class="box border">
+   		<div class="boxHd"><span style="float:right; margin-right:5px;"></span>二维码</div>  
+   		<img src="/bookqrcode.jsp?con=%E3%80%8A%E7%B2%A4%E8%A5%BF%E5%8D%81%E5%9B%9B%E5%AE%B6%E8%AF%97%E9%92%9E%E3%80%8B%E6%A0%A1%E8%AF%84++%E4%B8%8A%0D%0A%0D%0A%E3%80%90%E4%BD%9C%E3%80%80%E8%80%85%E3%80%91%E9%99%88%E6%9F%B1%E7%BC%96%EF%BC%9B%E9%AB%98%E6%B9%9B%E7%A5%A5%EF%BC%8C%E9%99%88%E6%B9%98%E6%A0%A1%E8%AF%84%0D%0A%E3%80%90%E5%BD%A2%E6%80%81%E9%A1%B9%E3%80%91486%2C%0D%0A%E3%80%90%E5%87%BA%E7%89%88%E9%A1%B9%E3%80%91%E5%8D%97%E5%AE%81%EF%BC%9A%E5%B9%BF%E8%A5%BF%E4%BA%BA%E6%B0%91%E5%87%BA%E7%89%88%E7%A4%BE%2C1997.11%0D%0A%E3%80%90ISBN%E5%8F%B7%E3%80%917-219-03552-7%0D%0A%E3%80%90%E5%8E%9F%E4%B9%A6%E5%AE%9A%E4%BB%B7%E3%80%9160.00%0D%0A%E3%80%90%E4%B8%AD%E5%9B%BE%E6%B3%95%E5%88%86%E7%B1%BB%E5%8F%B7%E3%80%91I222" style="vertical-align: text-bottom"/>
+   	 </div>       
+     <div style="display:none" class="box collecter border" id="whoFavInt">
+        <div class="boxHd"><span style="float:right; margin-right:5px;" id="sccount"></span>图书收藏</div>                           
+        <div class="boxBd clearfix">
+            <span id="leftTrigger" class="left leftTrigger" style="margin-top:25px"></span>           
+            <div class="left commenter" id="whoFavIn">
+            </div>
+            <span id="rightTrigger" style="margin-top:25px" class="right rightTrigger"></span>
+        </div>
+   	</div>   	  
+   	         
+</div>
+</div>
+
+<style type="text/css">
+	#foot {width:892px; margin:10px auto 0 auto;}
+</style> 
+
+
+
+
+
+	
+	<script type="text/javascript" src="/views/js/bottom.js"></script>
+
+<div style = "display: none;">
+	<script type="text/javascript" src="http://s11.cnzz.com/stat.php?id=2088844&web_id=2088844&show=pic" ></script>
+</div>
+ 
+<div style="display:none">
+<script type="text/javascript" src="/js/sliderUser.js"></script>
+<script type="text/javascript" src="/js/sliderBook.js"></script>
+<script type="text/javascript">
+ajax_Basis("/other.do?go=ccomment&dxid=000007552009",function(s){
+	var pl=document.getElementById("plcount");
+	pl.innerHTML=s;
+});
+send_requestajax("/other.do?go=scomment&dxid=000007552009&d=17D74BA9F57B169936C0C53FC3C4C01E&commenttag=tag","cmtcontent");
+getNewfavlib("",dx,"whoFavIn",function(){
+	jQuery("#whoFavIn").sliderUser();
+	var dic=document.getElementById("whoFavIn");
+	var sccount=dic.getElementsByTagName("li").length;
+	if(sccount>0){
+		document.getElementById("sccount").innerHTML="有"+sccount+"人收藏了此书";
+	}
+} ); 
+getScore(dx);
+function gotolangrun(){ 
+	var langrunUrl =  document.getElementById("langrun").href;
+	window.open(langrunUrl);
+}
+
+function exportBook(){
+	document.getElementById("downexecl").submit();
+}
+</script>
+<script language="javascript" src="http://count.duxiu.com/systeminsert.jsp?unitid=689&userid=-1&gid=65&channel=search&ip=113.12.29.126"></script>
+<script language="javascript" src="http://count.duxiu.com/sbookinsert.jsp?unitid=689&userid=-1&gid=65&dxid=000007552009&catalog=null&ip=113.12.29.126&channelid=11&username=0&unitname=长春网络图书馆&pkey=3664808"></script>
+</div>
+<script>
+jQuery.noConflict();
+jQuery(function(){	
+	jQuery("#bookList").sliderBook();
+});
+showimage("4d5b3d8619ed7c36831b94fcea96b413927d22dbac27d7bc7d99b0626cc2ff2fd93104bbcaa243d2f8ec36ce55b3ffa7de3c18fe607dc57e76c2c0e01b9ce0987d865d3495bae3c2abfdbaeb10f302673b2042f8f3981ca4bc323bd73ea635e541404d96e8e2a2cc127068b4e3e78509"); //书内插图
+</script>
+<div id="popshow" style="display:none;border:1px solid #ffcc00; background:#ffffee;padding:5px; position:absolute;color:#333;line-height:1.5;">想在家使用读秀吗？<br />请将您的作品授权超星数字图书馆。</div> 
+</body>
+</html> 
