@@ -1,7 +1,8 @@
 ## General
-1. 懶得每次敲那麼多字，所以用短文件名。
-2. 測試都是實際下載中發生的，很多 bug 沒測到一點都不奇怪。
-3. Environment: Python 3.4, Chrome + TamperMonkey.
+Environment: Python 3.4.3, Chrome + TamperMonkey.
+
+## BookRename.pyw
+A private renaming script for some books.
 
 ## a.py
 1. 用於補版權。
