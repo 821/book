@@ -6,11 +6,6 @@ rows = 7
 wd = Tk()
 wd.title('更名器')
 
-def ctrl_c(self):
-	if not self.area.tag_ranges("sel"): #如果没有选中的内容就return
-		return
-	self.area.event_generate("<<Copy>>")
-
 class pair(object):
 	def __init__(self,r,buttext):
 		self.r = r
