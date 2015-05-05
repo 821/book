@@ -118,7 +118,7 @@ def getBook(gzBook):
 	bookname=gzBook[4]
 
 	#文件夾
-	ssFolder='F:\\ss\\'+bookname+'_'+ssid+'\\'
+	ssFolder='F:/ss/'+bookname+'_'+ssid+'/'
 	FolderExist=os.path.isdir(ssFolder)
 	if FolderExist == False:
 		os.mkdir(r'f:/ss/'+bookname+'_'+ssid+'/')
@@ -155,7 +155,7 @@ def getBook(gzBook):
 	thread5.join()
 
 	if die == 0:
-		shutil.move(ssFolder,'F:\\ss\\done\\'+bookname+'_'+ssid+'\\')
+		shutil.move(ssFolder,'F:/ss/done/'+bookname+'_'+ssid+'/')
 	else:
 		print(bookname+ssid+' has '+die+' pages incomplete')
 
