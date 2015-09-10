@@ -18,6 +18,9 @@ A private renaming script for some books.
 3. 自動根據 DX 生成標準文件夾，下載時文件夾放在 F:\\ss\\ ，完成後移入 F:\\ss\\leg\\ 。
 4. 結合 bat 卽爲批量。
 
+## leg.pyw
+An Infringing page downloader with GUI.
+
 ## c.py
 1. 用於下載 CADAL 。
 2. CADAL 原因，不是每本書都能下載。
